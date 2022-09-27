@@ -6,16 +6,16 @@ import org.junit.jupiter.api.Test;
 public class UserValidatorTest {
 
     @Test
-    public void givenMobileNumber_WhenProperFormat_ShouldReturnTrue() {
+    public void givenPassword_WhenProperFormat_ShouldReturnTrue() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.vaildateMobileNumber("91 9425109980");
+        boolean result = validator.vaildatePassword("password123");
         Assertions.assertEquals(true, result);
     }
 
     @Test
-    public void givenMobileNumber_WhenLessDigits_ShouldReturnFalse() {
+    public void givenPassword_WhenLessDigits_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.vaildateMobileNumber("91 94251099");
+        boolean result = validator.vaildatePassword("kjasda");
         Assertions.assertEquals(true, result);
     }
 
