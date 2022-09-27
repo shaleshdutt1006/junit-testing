@@ -1,29 +1,29 @@
 package com.uservalidator;
 
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class UserValidatorTest {
 
 
-    @Test
-    public void givenLastName_WhenProper_ShouldReturnTrue() {
+    @org.junit.jupiter.api.Test
+    public void givenEmail_WhenProper_ShouldReturnTrue() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateLastName("Shalesh Dutt");
+        boolean result = validator.vaildateEmail("abc.xyz@bl.co.in");
         Assertions.assertEquals(true, result);
     }
 
-    @Test
-    public void givenLastName_WhenWithSpChar_ShouldReturnFalse() {
+    @org.junit.jupiter.api.Test
+    public void givenEmail_WhenNoMandPart_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateLastName("Shalesh @Dutt");
+        boolean result = validator.vaildateEmail("abc.xyz@pq.co.in");
         Assertions.assertEquals(false, result);
     }
 
     @Test
-    public void givenLastName_WhenNoSpace_ShouldReturnFalse() {
+    public void givenemail_WhenNoSpeChar_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateLastName("Shaleshdutt");
+        boolean result = validator.vaildateEmail("abc.xyz.bl.co.in");
         Assertions.assertEquals(false, result);
     }
 }

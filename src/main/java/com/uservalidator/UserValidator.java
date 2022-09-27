@@ -4,13 +4,12 @@ import java.util.regex.Pattern;
 
 public class UserValidator {
 
-    private static final String Last_Name_Pattern = "^[A-Z]{1,}[a-z]{3,}+\s+[A-Z]{1,}[a-z]{2,}$";
+    private static final String Email_Pattern = "[abc]{1,3}" + "[.]" + "[a-z 0-9]{1,}" + "[@]" + "bl{1}" + "[.]" + "co{1}" + "[.]" + "[a-z]{1,}";
 
-    public boolean validateLastName(String lname) {
-        Pattern pattern = Pattern.compile(Last_Name_Pattern);
-        return pattern.matcher(lname).matches();
+    public boolean vaildateEmail(String email) {
+        Pattern pattern = Pattern.compile(Email_Pattern);
+        return pattern.matcher(email).matches();
     }
-
 
 
 }
