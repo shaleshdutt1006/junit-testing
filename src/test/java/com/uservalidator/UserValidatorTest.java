@@ -5,25 +5,26 @@ import org.junit.jupiter.api.Assertions;
 
 public class UserValidatorTest {
 
+
     @Test
-    public void givenFirstName_WhenProper_ShouldReturnTrue() {
+    public void givenLastName_WhenProper_ShouldReturnTrue() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateFirstName("Shalesh");
+        boolean result = validator.validateLastName("Shalesh Dutt");
         Assertions.assertEquals(true, result);
     }
 
     @Test
-    public void givenFirstName_WhenShort_ShouldReturnFalse() {
+    public void givenLastName_WhenWithSpChar_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateFirstName("sh");
-        Assertions.assertFalse(result);
+        boolean result = validator.validateLastName("Shalesh @Dutt");
+        Assertions.assertEquals(false, result);
     }
 
     @Test
-    public void givenFirstName_WhenWithSpChars_ShouldReturnfalse() {
+    public void givenLastName_WhenNoSpace_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validateFirstName("Sha@lesh");
-        Assertions.assertFalse(result);
+        boolean result = validator.validateLastName("Shaleshdutt");
+        Assertions.assertEquals(false, result);
     }
 }
 
