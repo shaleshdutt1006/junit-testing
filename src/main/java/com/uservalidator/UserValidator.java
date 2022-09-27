@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class UserValidator {
 
-    private static final String Password_Pattern = ".{8,}";
+    private static final String Password_Pattern = "(?=.*[A-Z])" + ".{8,}";
 
     public boolean vaildatePassword(String Password) {
         Pattern pattern = Pattern.compile(Password_Pattern);
