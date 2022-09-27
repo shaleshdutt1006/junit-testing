@@ -4,15 +4,23 @@ import java.util.regex.Pattern;
 
 public class UserValidator {
 
-    /*
-    Validating Password with at least one upper case and eight minimum characters
+    /**
+     * Setting password which has at least 8 character one uppercase letter and one numeric number
+     *
+     * @param args
      */
-    private static final String Password_Pattern = "(?=.*[A-Z])" + ".{8,}";
+    private static final String Password_Pattern = "(?=.*[A-Z])" + "(?=.*[0-9])" + ".{8,}";
 
     public boolean vaildatePassword(String Password) {
         Pattern pattern = Pattern.compile(Password_Pattern);
-        return pattern.matcher(Password).matches();
 
+        if (pattern.matcher(Password).matches()) {
+            System.out.println("Password is set");
+            return true;
+        } else {
+            System.out.println("Please Enter valid input Password is not Set");
+            return false;
+        }
     }
 
 }

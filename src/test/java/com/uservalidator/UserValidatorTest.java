@@ -13,10 +13,10 @@ public class UserValidatorTest {
     }
 
     @Test
-    public void givenPassword_WithoutUpperCase_ShouldReturnFalse() {
+    public void givenPassword_WithoutNumericNumber_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.vaildatePassword("password123");
-        Assertions.assertEquals(false, result);
+        boolean result = validator.vaildatePassword("passWord");
+        Assertions.assertEquals(true, result);
     }
 
 }
