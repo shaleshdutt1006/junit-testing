@@ -5,27 +5,20 @@ import org.junit.jupiter.api.Test;
 
 public class UserValidatorTest {
 
-
-    @org.junit.jupiter.api.Test
-    public void givenEmail_WhenProper_ShouldReturnTrue() {
+    @Test
+    public void givenMobileNumber_WhenProperFormat_ShouldReturnTrue() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.vaildateEmail("abc.xyz@bl.co.in");
+        boolean result = validator.vaildateMobileNumber("91 9425109980");
         Assertions.assertEquals(true, result);
     }
 
-    @org.junit.jupiter.api.Test
-    public void givenEmail_WhenNoMandPart_ShouldReturnFalse() {
+    @Test
+    public void givenMobileNumber_WhenLessDigits_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.vaildateEmail("abc.xyz@pq.co.in");
-        Assertions.assertEquals(false, result);
+        boolean result = validator.vaildateMobileNumber("91 942510998");
+        Assertions.assertEquals(true, result);
     }
 
-    @Test
-    public void givenemail_WhenNoSpeChar_ShouldReturnFalse() {
-        UserValidator validator = new UserValidator();
-        boolean result = validator.vaildateEmail("abc.xyz.bl.co.in");
-        Assertions.assertEquals(false, result);
-    }
 }
 
 

@@ -4,12 +4,12 @@ import java.util.regex.Pattern;
 
 public class UserValidator {
 
-    private static final String Email_Pattern = "[abc]{1,3}" + "[.]" + "[a-z 0-9]{1,}" + "[@]" + "bl{1}" + "[.]" + "co{1}" + "[.]" + "[a-z]{1,}";
+    private static final String MobileNumber_Pattern = "91{1} +\s + [0-9]{1,10}$";
 
-    public boolean vaildateEmail(String email) {
-        Pattern pattern = Pattern.compile(Email_Pattern);
-        return pattern.matcher(email).matches();
+    public boolean vaildateMobileNumber(String MobileNumber) {
+        Pattern pattern = Pattern.compile(MobileNumber_Pattern);
+        return pattern.matcher(MobileNumber).matches();
+
     }
-
 
 }
