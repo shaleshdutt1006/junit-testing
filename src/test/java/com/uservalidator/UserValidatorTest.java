@@ -15,7 +15,7 @@ public class UserValidatorTest {
     @Test
     public void givenMobileNumber_WhenLessDigits_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.vaildateMobileNumber("91 942510998");
+        boolean result = validator.vaildateMobileNumber("91 94251099");
         Assertions.assertEquals(true, result);
     }
 
