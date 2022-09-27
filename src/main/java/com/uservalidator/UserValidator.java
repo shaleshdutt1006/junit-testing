@@ -1,27 +1,31 @@
 package com.uservalidator;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class UserValidator {
 
-    /**
-     * Setting password which has at least 8 character one uppercase letter and one numeric number and
-     * at least one special character and no whitespace allowed
-     *
-     * @param args
+     /*
+     Describing Pattern of email and compile it
      */
-    private static final String Password_Pattern = "(?=.*[A-Z])" + "(?=.*[0-9])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$)" + ".{8,}";
 
-    public boolean vaildatePassword(String Password) {
-        Pattern pattern = Pattern.compile(Password_Pattern);
+    String emailRegex = "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*" + "@([a-zA-Z0-9][-]?)+[.][a-zA-Z]{2,4}([.]{2,4})?$";
+    Pattern pattern = Pattern.compile(emailRegex);
 
-        if (pattern.matcher(Password).matches()) {
-            System.out.println("Password is set");
-            return true;
-        } else {
-            System.out.println("Please Enter valid input Password is not Set");
-            return false;
+    public boolean vaildateEmail(List<String> arrayList) {
+        boolean flag = true;
+        for (int i = 0; i < arrayList.size(); i++) {
+
+         /*
+         using for-loop checking every email whether it matches the defined pattern or not
+          */
+            if (pattern.matcher(arrayList.get(i)).matches()) {
+                System.out.println("valid");
+            } else {
+                System.out.println("invalid");
+                flag = false;
+            }
         }
+        return flag;
     }
-
 }
